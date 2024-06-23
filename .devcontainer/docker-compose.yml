@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  # 这就好像是k8s service name!!
+  # 在一个网络里别重复了
+  user-backend:
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      # 让你在容器里照样git xxx
+      - ~/.ssh:/opt/niuma/.ssh
+      # 容器里写的代码和主机代码
+      # 外面代码可以复制进来
+      # 容器里代码也可以map出去
+      - ..:/opt/niuma/code
+    command: ["tail -f /dev/null"]
+    ports:
+      # 这样localhost:8006就到了
+      # 容器里的8000
+      - 8006:8000
+    depends_on:
+      - db-for-user-backend
+    networks:
+      - my-website
+
+  # 每个微服务自己的数据库
+  db-for-user-backend:
+    image: postgres:14
+    # 也可以把port弄出来，这样容器外面可以用psql看里面
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
+    networks:
+      - my-website
+
+# 事先请 docker network create -d bridge my-website 
+networks:
+  my-website:
+    external: true
