@@ -1,5 +1,5 @@
 {
-	"name": "my-website-user-backend",
+	"name": "play-with-poetry-devcontainer",
 	"dockerComposeFile": "docker-compose.yml",
     // 这里的service要和docker-compose里一样
     // 让vscode知道你要在哪个容器里工作
@@ -16,7 +16,6 @@
 						"path": "/bin/bash"
 					}
 				},
-				"python.pythonPath": "/usr/local/bin/python",
 				"python.linting.enabled": true,
 				"python.linting.pylintEnabled": true,
 			},
@@ -38,3 +37,4 @@
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "niuma"
 }
+

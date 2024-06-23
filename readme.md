@@ -6,8 +6,10 @@
     poetry init
     # package is the app
     poetry add flask
-    poetry add -G pytest
-    poetry add -G black
+    poetry add gunicorn
+    poetry add -G dev pytest
+    poetry add -G dev black
+    poetry add -G dev isort
     ```
 
     main.py
