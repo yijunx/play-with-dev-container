@@ -1,12 +1,8 @@
 {
 	"name": "play-with-poetry-devcontainer",
 	"dockerComposeFile": "docker-compose.yml",
-    // 这里的service要和docker-compose里一样
-    // 让vscode知道你要在哪个容器里工作
 	"service": "user-backend",
-    // 让vscode知道你要在哪个路径下工作
 	"workspaceFolder": "/opt/niuma/code",
-	// Set *default* container specific settings.json values on container create.
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -19,22 +15,13 @@
 				"python.linting.enabled": true,
 				"python.linting.pylintEnabled": true,
 			},
-			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 			]
 		}
 	},
-	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
-	// 这里可以用poetry或者pip
-    // pip最好准备两个requirments
-    // 一个是production最后用的，在项目的根目录
-    // 一个是在devcontainer文件夹里面，是开发专用的，比如会装black或者pytest
-    // "postCreateCommand": "pip install -r .devcontainer/dev-requirements.txt && pip install -r requirements.txt",
 	"postCreateCommand": "poetry install --with dev",
-
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "niuma"
 }
 
