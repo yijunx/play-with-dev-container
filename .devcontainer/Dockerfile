@@ -24,10 +24,11 @@ RUN apt-get update && \
     apt-get install -y git && \
     apt-get install -y openssh-client && \
     pip install --upgrade pip && \
-    pip install --upgrade poetry && \
-    # 这里poetry就不用再创建环境了
-    poetry config virtualenvs.create false
+    pip install --upgrade poetry
 
+# 这里poetry就不用再创建环境了
+RUN poetry config virtualenvs.create false
+    
 # 这里弄好ssh，如果是bitbucket把下面github的给改了
 RUN mkdir ${DOCKER_HOME}/.ssh && \
     chown -R ${DOCKER_USER} ${DOCKER_HOME}/.ssh && \

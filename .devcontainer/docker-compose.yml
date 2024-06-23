@@ -22,7 +22,7 @@ services:
     depends_on:
       - db-for-user-backend
     networks:
-      - my-website
+      - microservices-for-xxx
 
   # 每个微服务自己的数据库
   db-for-user-backend:
@@ -33,9 +33,13 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=db
     networks:
-      - my-website
+      - microservices-for-xxx
 
-# 事先请 docker network create -d bridge my-website 
+# 事先请 docker network create -d bridge microservices-for-xxx
 networks:
-  my-website:
+  # 这个network其他devcontainer也可以用，而且在同一个namespace下
+  # 比如另一个服务可以curl http://user-backend:8000/xxxxx
+  microservices-for-xxx:
     external: true
+
+
