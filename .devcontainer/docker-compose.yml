@@ -18,7 +18,7 @@ services:
     ports:
       # 这样localhost:8006就到了
       # 容器里的8000
-      - 8006:8000
+      - 8123:8000
     depends_on:
       - db-for-user-backend
     networks:

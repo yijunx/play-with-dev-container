@@ -16,6 +16,9 @@
 						"path": "/bin/bash"
 					}
 				},
+				"python.pythonPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
