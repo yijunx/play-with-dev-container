@@ -1,9 +1,9 @@
 FROM python:3.12
 ENV PYTHONUNBUFFERED 1
-ARG DOCKER_HOME="/opt/niuma"
-ARG DOCKER_CODE="/opt/niuma/code"
-ARG DOCKER_GROUP="niuma"
-ARG DOCKER_USER="niuma"
+ARG DOCKER_HOME="/opt/yourname"
+ARG DOCKER_CODE="/opt/yourname/code"
+ARG DOCKER_GROUP="yourname"
+ARG DOCKER_USER="yourname"
 ARG DOCKER_UID=5000
 WORKDIR ${DOCKER_CODE}
 
@@ -23,6 +23,7 @@ RUN mkdir ${DOCKER_HOME}/.ssh && \
     chown -R ${DOCKER_USER} ${DOCKER_HOME}/.ssh && \
     ssh-keyscan github.com >> ${DOCKER_HOME}/.ssh/known_hosts
 
+ENV PATH "$PATH:/opt/yourname/.local/bin"
 ENV PYTHONPATH=.
 USER ${DOCKER_USER}
 ENTRYPOINT [ "/bin/sh", "-c" ]

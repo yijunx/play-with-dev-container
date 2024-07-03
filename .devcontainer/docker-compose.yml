@@ -6,15 +6,15 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
-      - ~/.ssh:/opt/niuma/.ssh
-      - ..:/opt/niuma/code
+      - ~/.ssh:/opt/yourname/.ssh
+      - ..:/opt/yourname/code
     command: ["tail -f /dev/null"]
     ports:
       - 8123:8000
     depends_on:
       - db-for-user-backend
-    networks:
-      - microservices-for-xxx
+    # networks:
+    #   - microservices-for-xxx
 
   db-for-user-backend:
     image: postgres:14
@@ -22,11 +22,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=db
-    networks:
-      - microservices-for-xxx
+    # networks:
+    #   - microservices-for-xxx
 
-networks:
-  microservices-for-xxx:
-    external: true
+# networks:
+#   microservices-for-xxx:
+#     external: true
 
 

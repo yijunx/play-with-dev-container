@@ -2,7 +2,7 @@
 	"name": "play-with-poetry-devcontainer",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "user-backend",
-	"workspaceFolder": "/opt/niuma/code",
+	"workspaceFolder": "/opt/yourname/code",
 	"customizations": {
 		"vscode": {
 			"settings": {
@@ -22,6 +22,6 @@
 		}
 	},
 	"postCreateCommand": "poetry install --with dev",
-	"remoteUser": "niuma"
+	"remoteUser": "yourname"
 }
 

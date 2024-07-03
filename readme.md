@@ -1,15 +1,26 @@
+* preparation
+
+install docker
+have the dev container extension in vscode
+
 * commands
 
     ```
+    # reopen in container
     mkdir app
     touch app/main.py
     poetry init
     # package is the app
+
+    # install what you need to the service
     poetry add flask
     poetry add gunicorn
-    poetry add -G dev pytest
+    # install what you need just for write code
+    poetry add -G dev pytest pytest-cov
     poetry add -G dev black
     poetry add -G dev isort
+    # after all installed, select interpreter to the poetry one
+    # open locally then reopen, you are good to go
     ```
 
     main.py
