@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  user-backend:
+  app:
     build: 
       context: ..
       dockerfile: .devcontainer/Dockerfile
@@ -12,11 +12,24 @@ services:
     ports:
       - 8123:8000
     depends_on:
-      - db-for-user-backend
+      - db
+      - minio
+    # networks:
+    #   - microservices-for-xxx
+  
+  minio:
+    image: minio/minio
+    ports:
+      - 9002:9000
+      - 9003:9001
+    environment:
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key
+    command: server /data --console-address ":9001"
     # networks:
     #   - microservices-for-xxx
 
-  db-for-user-backend:
+  db:
     image: postgres:14
     environment:
       - POSTGRES_USER=postgres

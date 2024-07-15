@@ -1,7 +1,7 @@
 {
 	"name": "play-with-poetry-devcontainer",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "user-backend",
+	"service": "app",
 	"workspaceFolder": "/opt/yourname/code",
 	"customizations": {
 		"vscode": {
