@@ -39,3 +39,12 @@ have the dev container extension in vscode
     if __name__ == "__main__":
         app.run(host="0.0.0.0", port=8000)
     ```
+
+### notes on windows
+
+https://github.com/microsoft/vscode-remote-release/issues/9399
+
+for now, if you click, reopen in container, the git will act blur.
+Need to manually click refresh
+
+unless you do clone in WSL.
